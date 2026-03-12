@@ -1,0 +1,25 @@
+@startuml REQ-FUNC-005
+left to right direction
+
+actor "Operador de inventario" as Operador
+
+rectangle "Sistema de Inventario SophyFarm" {
+  usecase "Editar producto" as UC_EditarProducto
+  usecase "Seleccionar producto" as UC_SeleccionarProducto
+  usecase "Mostrar información actual" as UC_MostrarInfo
+  usecase "Modificar nombre del producto" as UC_ModificarNombre
+  usecase "Validar datos editados" as UC_ValidarDatos
+  usecase "Guardar cambios" as UC_GuardarCambios
+  usecase "Confirmar actualización" as UC_ConfirmarActualizacion
+}
+
+Operador --> UC_EditarProducto
+
+UC_EditarProducto .> UC_SeleccionarProducto : <<include>>
+UC_EditarProducto .> UC_MostrarInfo : <<include>>
+UC_EditarProducto .> UC_ModificarNombre : <<extend>>
+UC_EditarProducto .> UC_ValidarDatos : <<include>>
+UC_EditarProducto .> UC_GuardarCambios : <<include>>
+UC_EditarProducto .> UC_ConfirmarActualizacion : <<include>>
+
+@enduml

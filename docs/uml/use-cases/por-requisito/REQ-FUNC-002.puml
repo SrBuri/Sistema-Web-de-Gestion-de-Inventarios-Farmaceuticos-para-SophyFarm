@@ -1,0 +1,16 @@
+@startuml REQ-FUNC-002
+left to right direction
+
+actor "Operador de inventario" as Operador
+
+rectangle "Sistema de Inventario SophyFarm" {
+  usecase "Cerrar sesión" as UC_CerrarSesion
+  usecase "Redirigir a inicio de sesión" as UC_RedirigirLogin
+}
+
+Operador --> UC_CerrarSesion
+
+UC_CerrarSesion .> UC_RedirigirLogin : <<include>>
+
+
+@enduml

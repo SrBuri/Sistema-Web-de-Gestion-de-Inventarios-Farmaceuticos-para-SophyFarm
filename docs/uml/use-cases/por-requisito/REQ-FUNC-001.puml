@@ -1,0 +1,18 @@
+@startuml REQ-FUNC-001
+left to right direction
+
+actor "Operador de inventario" as Operador
+
+rectangle "Sistema de Inventario SophyFarm" {
+
+  usecase "Iniciar sesión" as UC_Login
+  usecase "Validar credenciales" as UC_Validar
+  usecase "Verificar campos obligatorios" as UC_Campos
+}
+
+Operador --> UC_Login
+
+UC_Login .> UC_Campos : <<include>>
+UC_Login .> UC_Validar : <<include>>
+
+@enduml

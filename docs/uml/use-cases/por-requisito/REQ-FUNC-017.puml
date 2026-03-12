@@ -1,0 +1,23 @@
+@startuml REQ-FUNC-017 
+left to right direction
+
+actor "Operador de inventario" as Operador
+
+rectangle "Sistema de Inventario SophyFarm" {
+  usecase "Visualizar stock por lote" as UC_StockLote
+  usecase "Buscar o seleccionar producto" as UC_SeleccionarProducto
+  usecase "Validar existencia del producto" as UC_ValidarProducto
+  usecase "Obtener existencias por lote" as UC_ObtenerLotes
+  usecase "Mostrar detalle por lote" as UC_MostrarDetalle
+  usecase "Informar ausencia de lotes disponibles" as UC_SinLotes
+}
+
+Operador --> UC_StockLote
+
+UC_StockLote .> UC_SeleccionarProducto : <<include>>
+UC_StockLote .> UC_ValidarProducto : <<include>>
+UC_StockLote .> UC_ObtenerLotes : <<include>>
+UC_StockLote .> UC_MostrarDetalle : <<extend>>
+UC_StockLote .> UC_SinLotes : <<extend>>
+
+@enduml

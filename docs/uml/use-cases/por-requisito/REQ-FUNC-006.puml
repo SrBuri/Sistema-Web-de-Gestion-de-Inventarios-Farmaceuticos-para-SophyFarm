@@ -1,0 +1,18 @@
+@startuml REQ-FUNC-006 
+left to right direction
+
+actor "Operador de inventario" as Operador
+
+rectangle "Sistema de Inventario SophyFarm" {
+  usecase "Visualizar listado de productos" as UC_ListarProductos
+  usecase "Consultar productos registrados" as UC_ConsultarProductos
+  usecase "Mostrar listado de productos" as UC_MostrarListado
+  usecase "Informar ausencia de datos" as UC_SinDatos
+}
+
+Operador --> UC_ListarProductos
+UC_ListarProductos .> UC_ConsultarProductos : <<include>>
+UC_ListarProductos .> UC_MostrarListado : <<extend>>
+UC_ListarProductos .> UC_SinDatos : <<extend>>
+
+@enduml

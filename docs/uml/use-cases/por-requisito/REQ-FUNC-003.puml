@@ -1,0 +1,23 @@
+@startuml REQ-FUNC-003
+left to right direction
+
+actor "Operador de inventario" as Operador
+
+rectangle "Sistema de Inventario SophyFarm" {
+  usecase "Registrar producto" as UC_RegistrarProducto
+  usecase "Capturar datos del producto" as UC_CapturarDatos
+  usecase "Validar campos obligatorios" as UC_ValidarCampos
+  usecase "Validar unicidad del código" as UC_ValidarCodigoUnico
+  usecase "Almacenar producto" as UC_AlmacenarProducto
+  usecase "Confirmar registro" as UC_ConfirmarRegistro
+}
+
+Operador --> UC_RegistrarProducto
+
+UC_RegistrarProducto .> UC_CapturarDatos : <<include>>
+UC_RegistrarProducto .> UC_ValidarCampos : <<include>>
+UC_RegistrarProducto .> UC_ValidarCodigoUnico : <<include>>
+UC_RegistrarProducto .> UC_AlmacenarProducto : <<include>>
+UC_RegistrarProducto .> UC_ConfirmarRegistro : <<include>>
+
+@enduml

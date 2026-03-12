@@ -1,0 +1,63 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Operador de inventario" as Operador
+
+rectangle "Módulo Web de Inventarios - SophyFarm" {
+
+  package "Autenticación" {
+    usecase "Iniciar sesión" as UC01
+    usecase "Cerrar sesión" as UC02
+  }
+
+  package "Productos" {
+    usecase "Registrar producto" as UC03
+    usecase "Buscar producto" as UC04
+    usecase "Editar producto" as UC05
+    usecase "Visualizar listado de productos" as UC06
+  }
+
+  package "Inventario" {
+    usecase "Registrar entrada de inventario" as UC07
+    usecase "Validar cantidad positiva\nen entrada" as UC08
+    usecase "Consultar stock por producto" as UC16
+    usecase "Visualizar stock por lote" as UC17
+  }
+
+  package "Ventas" {
+    usecase "Registrar venta" as UC14
+    usecase "Buscar producto para venta" as UC09
+    usecase "Registrar cantidad de venta" as UC10
+    usecase "Validar cantidad positiva\nen venta" as UC11
+    usecase "Validar disponibilidad\nde stock" as UC12
+    usecase "Descontar inventario\npor FEFO" as UC13
+    usecase "Actualizar stock\nposterior a la venta" as UC15
+  }
+}
+
+Operador --> UC01
+Operador --> UC02
+Operador --> UC03
+Operador --> UC04
+Operador --> UC05
+Operador --> UC06
+Operador --> UC07
+Operador --> UC14
+Operador --> UC16
+Operador --> UC17
+
+UC05 .> UC04 : <<include>>
+
+UC07 .> UC08 : <<include>>
+
+UC14 .> UC09 : <<include>>
+UC14 .> UC10 : <<include>>
+UC14 .> UC11 : <<include>>
+UC14 .> UC12 : <<include>>
+UC14 .> UC13 : <<include>>
+UC14 .> UC15 : <<include>>
+
+UC17 .> UC16 : <<include>>
+
+@enduml

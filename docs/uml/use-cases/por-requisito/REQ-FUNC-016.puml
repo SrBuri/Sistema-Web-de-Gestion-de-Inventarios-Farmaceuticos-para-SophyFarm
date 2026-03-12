@@ -1,0 +1,25 @@
+@startuml REQ-FUNC-016
+left to right direction
+
+actor "Operador de inventario" as Operador
+
+rectangle "Sistema de Inventario SophyFarm" {
+  usecase "Consultar stock por producto" as UC_ConsultarStock
+  usecase "Buscar o seleccionar producto" as UC_BuscarSeleccionar
+  usecase "Validar existencia del producto" as UC_ValidarProducto
+  usecase "Obtener stock total actualizado" as UC_ObtenerStock
+  usecase "Mostrar stock disponible" as UC_MostrarStock
+  usecase "Informar producto sin existencias" as UC_SinExistencias
+  usecase "Informar producto no encontrado" as UC_NoEncontrado
+}
+
+Operador --> UC_ConsultarStock
+
+UC_ConsultarStock .> UC_BuscarSeleccionar : <<include>>
+UC_ConsultarStock .> UC_ValidarProducto : <<include>>
+UC_ConsultarStock .> UC_ObtenerStock : <<include>>
+UC_ConsultarStock .> UC_MostrarStock : <<extend>>
+UC_ConsultarStock .> UC_SinExistencias : <<extend>>
+UC_ConsultarStock .> UC_NoEncontrado : <<extend>>
+
+@enduml

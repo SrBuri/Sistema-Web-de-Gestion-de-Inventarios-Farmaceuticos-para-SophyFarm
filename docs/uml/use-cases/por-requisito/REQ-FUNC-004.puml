@@ -1,0 +1,23 @@
+@startuml REQ-FUNC-004
+left to right direction
+
+actor "Operador de inventario" as Operador
+
+rectangle "Sistema de Inventario SophyFarm" {
+  usecase "Buscar producto" as UC_BuscarProducto
+  usecase "Ingresar criterio de búsqueda" as UC_IngresarCriterio
+  usecase "Buscar por código" as UC_BuscarCodigo
+  usecase "Buscar por nombre" as UC_BuscarNombre
+  usecase "Mostrar resultados coincidentes" as UC_MostrarResultados
+  usecase "Informar ausencia de resultados" as UC_SinResultados
+}
+
+Operador --> UC_BuscarProducto
+
+UC_BuscarProducto .> UC_IngresarCriterio : <<include>>
+UC_BuscarProducto .> UC_BuscarCodigo : <<extend>>
+UC_BuscarProducto .> UC_BuscarNombre : <<extend>>
+UC_BuscarProducto .> UC_MostrarResultados : <<extend>>
+UC_BuscarProducto .> UC_SinResultados : <<extend>>
+
+@enduml
