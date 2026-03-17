@@ -1,5 +1,16 @@
-# Compiled class file
+# Archivos compilados Java
 *.class
+
+# Carpetas de build
+bin/
+out/
+target/
+
+# Configuración de Eclipse
+.idea/
+.classpath
+.project
+.settings/
 
 # Log file
 *.log
@@ -18,7 +29,3 @@
 *.zip
 *.tar.gz
 *.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
