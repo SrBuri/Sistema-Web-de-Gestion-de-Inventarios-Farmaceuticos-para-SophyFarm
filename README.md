@@ -1,4 +1,4 @@
-# Sistema Web de Gestión de Inventarios Farmacéuticos – SophyFarm
+# Sistema de Gestión de Inventarios Farmacéuticos – SophyFarm
 
 ## 📌 Descripción del proyecto
 
@@ -10,12 +10,16 @@ El proyecto se está desarrollando siguiendo un enfoque estructurado basado en *
 
 ## 🧭 Estado actual del proyecto
 
-🔹 **Fase actual:** Transición de análisis → construcción   
+🔹 **Fase actual:** Construcción   
 🔹 **Avance implementado:**
 * CRUD básico de productos
 * Arquitectura en capas
 * Conexión a base de datos MySQL
 * Eliminación lógica de productos
+* Interfaz gráfica en Java Swing:
+  - Visualización tabular de productos
+  - Acciones directas (editar / eliminar)
+  - Retroalimentación al usuario mediante mensajes
 
 🔹 **Pendiente (próximas iteraciones):**
 
@@ -32,7 +36,7 @@ El proyecto se está desarrollando siguiendo un enfoque estructurado basado en *
 
 El sistema sigue una **arquitectura en capas**:
 
-* **Presentación:** interacción con el usuario (consola)
+* **Presentación:** interfaz gráfica (Java Swing)
 * **Lógica (servicio):** reglas de negocio y validaciones
 * **Persistencia (DAO):** acceso a base de datos
 * **Modelo:** entidades del dominio
@@ -134,7 +138,7 @@ Ejecutar la clase:
 Main.java
 ```
 
-El sistema se ejecuta en consola con un menú interactivo.
+El sistema se ejecuta mediante una interfaz gráfica de escritorio desarrollada en Java Swing.
 
 ---
 
@@ -161,6 +165,7 @@ El desarrollo sigue principios de calidad como:
 * Separación de responsabilidades
 * Validación de entradas
 * Uso de restricciones en base de datos
+* Eliminación lógica para preservar integridad
 * Trazabilidad entre requisitos y funcionalidades
 
 ---
@@ -175,3 +180,5 @@ El desarrollo sigue principios de calidad como:
 * Incorporar pruebas básicas
 
 ---
+
+⚠️ Nota: Aunque la visión del proyecto es una solución web, la implementación actual corresponde a un prototipo de escritorio utilizado para validar la lógica de negocio y persistencia.

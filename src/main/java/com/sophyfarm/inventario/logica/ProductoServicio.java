@@ -49,7 +49,7 @@ public class ProductoServicio {
 		return "No se pudo editar el producto";
 	}
 
-	public ArrayList<Producto> listaProductos() {
+	public ArrayList<Producto> listarProductos() {
 		var lista = new ArrayList<Producto>();
 		lista = productoDAO.listarProductos();
 		return lista;
